@@ -5,9 +5,10 @@ import Button from "./components/Button";
 const App = () => {
   const [count, setCount] = useState(0);
 
-  const increase = () => setCount(count + 1);
-  const decrease = () => setCount(count - 1);
-  const reset = () => setCount(0);
+ 
+  const increase = () => setCount((prev) => prev + 1);
+  const decrease = () => setCount((prev) => prev - 1);
+  const reset = () => setCount(() => 0);
 
   const countColor =
     count > 0 ? "text-green-500" : count < 0 ? "text-red-500" : "text-gray-800";
@@ -29,11 +30,11 @@ const App = () => {
           🌟 React Counter App
         </motion.h1>
 
-        
+        {/* Count display with animation */}
         <div className="h-16 flex items-center justify-center mb-8">
           <AnimatePresence mode="wait">
             <motion.h2
-              key={count} 
+              key={count}
               initial={{ opacity: 0, y: -20, scale: 0.8 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.8 }}
@@ -45,7 +46,7 @@ const App = () => {
           </AnimatePresence>
         </div>
 
-        
+        {/* Buttons */}
         <motion.div
           className="flex justify-center gap-4"
           initial={{ opacity: 0, y: 20 }}
