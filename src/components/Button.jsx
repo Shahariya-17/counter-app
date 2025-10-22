@@ -1,10 +1,10 @@
 import React from "react";
 
-const Button = ({ label, onClick }) => {
+const Button = ({ label, onClick, color }) => {
   return (
     <button
       onClick={onClick}
-      className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg mx-2 transition"
+      className={`px-5 py-2 rounded-lg text-white font-semibold transition-all ${color} active:scale-95 shadow-md`}
     >
       {label}
     </button>
